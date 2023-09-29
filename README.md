@@ -22,7 +22,7 @@ the wireframe has been done with draw.io and it can be found in the wireframe fo
 <img src="wireframe/images/transactions.png" width="400">
 <img src="wireframe/images/calendar.png" width="400">
 
-### UI implementation calendar ❌
+### UI implementation ❌
 
 TODO
 

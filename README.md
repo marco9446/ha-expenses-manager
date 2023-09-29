@@ -17,10 +17,7 @@ The aim of this project is to develope a simple to use application to stay on to
 
 the wireframe has been done with draw.io and it can be found in the wireframe folder
 
-<img src="wireframe/images/dashboard.png" width="400">
-<img src="wireframe/images/budget.png" width="400">
-<img src="wireframe/images/transactions.png" width="400">
-<img src="wireframe/images/calendar.png" width="400">
+<img src="wireframe/images/dashboard.png" width="400"> <img src="wireframe/images/budget.png" width="400"> <img src="wireframe/images/transactions.png" width="400"> <img src="wireframe/images/calendar.png" width="400">
 
 ### UI implementation ❌
 

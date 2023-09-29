@@ -1,27 +1,39 @@
-# React + TypeScript + Vite
+# HA Expense Manager
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+The aim of this project is to develope a simple to use application to stay on top of your expenses.
 
-Currently, two official plugins are available:
+## Requirements
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- Show at least monthly and yearly overview of income expenses and savings
+- Creation of categories to differentiate transactions
+- Creation of recurring transactions, aka Bills
+- Show transactions in a calendar view, especially for bills
+- Responsive design
+- Good integration with home assistant
 
-## Expanding the ESLint configuration
+## Project status
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+### Creation of app wireframe ✅
 
-- Configure the top-level `parserOptions` property like this:
+the wireframe has been done with draw.io and it can be found in the wireframe folder
 
-```js
-   parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-   },
-```
+<img src="wireframe/images/dashboard.png" width="400">
+<img src="wireframe/images/budget.png" width="400">
+<img src="wireframe/images/transactions.png" width="400">
+<img src="wireframe/images/calendar.png" width="400">
 
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+### UI implementation calendar ❌
+
+TODO
+
+### Backend implementation ❌
+
+TODO
+
+### HA Integration ❌
+
+TODO
+
+### Deployment ❌
+
+TODO

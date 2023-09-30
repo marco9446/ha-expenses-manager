@@ -1,15 +1,12 @@
 import { create } from 'zustand'
 import { createJSONStorage, persist } from 'zustand/middleware'
-import { currencies } from './lib/utils'
+import { Currency, Page } from './types'
 
-type Currency = typeof currencies
-type Page = 'dashboard' | 'budget' | 'transactions' | 'calendar'
-
-interface HaExpenseState {
-  currency: Currency[number]['code']
+type HaExpenseState = {
+  currency: Currency['code']
   roundUpNumbers: boolean
   defaultPage: Page
-  setCurrency: (currency: Currency[number]['code']) => void
+  setCurrency: (currency: Currency['code']) => void
   setDefaultPage: (page: Page) => void
   toggleRoundupNumbers: () => void
 }
@@ -17,18 +14,17 @@ interface HaExpenseState {
 export const useHaExpensesStore = create<HaExpenseState>()(
   persist(
     (set, get) => ({
-      roundUpNumbers: false,
       currency: 'CHF',
       defaultPage: 'dashboard',
-      setCurrency: (currency: Currency[number]['code']) =>
-        set(() => ({ currency })),
+      roundUpNumbers: false,
+      setCurrency: (currency: Currency['code']) => set(() => ({ currency })),
       setDefaultPage: (page: Page) => set(() => ({ defaultPage: page })),
       toggleRoundupNumbers: () =>
         set(() => ({ roundUpNumbers: !get().roundUpNumbers })),
     }),
     {
       name: 'ha-expense-manager-store',
-      storage: createJSONStorage(() => sessionStorage),
+      storage: createJSONStorage(() => localStorage),
     }
   )
 )

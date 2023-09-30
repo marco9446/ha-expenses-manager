@@ -7,8 +7,8 @@ import {
   SelectTrigger,
   SelectValue,
 } from '@/components/ui/select'
+import { useHaExpensesStore } from '@/lib/store'
 import { currencies } from '@/lib/utils'
-import { useHaExpensesStore } from '@/store'
 
 const SettingsPage = () => {
   currencies

@@ -26,26 +26,26 @@ function App() {
       {/* Nav section */}
       <section>
         <NavigationMenu>
-          <NavigationMenuList>
+          <NavigationMenuList className="space-x-2">
             <NavigationMenuItem>
-              <Link to="/">
-                <NavigationMenuLink>Dashboard</NavigationMenuLink>
-              </Link>
+              <NavigationMenuLink className="rounded border p-1 " asChild>
+                <Link to="/">Dashboard</Link>
+              </NavigationMenuLink>
             </NavigationMenuItem>
             <NavigationMenuItem>
-              <Link to="/budget">
-                <NavigationMenuLink>Budget</NavigationMenuLink>
-              </Link>
+              <NavigationMenuLink className="rounded border p-1 " asChild>
+                <Link to="/budget">Budget</Link>
+              </NavigationMenuLink>
             </NavigationMenuItem>
             <NavigationMenuItem>
-              <Link to="/transactions">
-                <NavigationMenuLink>Transactions</NavigationMenuLink>
-              </Link>
+              <NavigationMenuLink className="rounded border p-1 " asChild>
+                <Link to="/transactions">Transactions</Link>
+              </NavigationMenuLink>
             </NavigationMenuItem>
             <NavigationMenuItem>
-              <Link to="/calendar">
-                <NavigationMenuLink>Calendar</NavigationMenuLink>
-              </Link>
+              <NavigationMenuLink className="rounded border p-1 " asChild>
+                <Link to="/calendar">Calendar</Link>
+              </NavigationMenuLink>
             </NavigationMenuItem>
           </NavigationMenuList>
         </NavigationMenu>

@@ -14,6 +14,11 @@ const indexRoute = new Route({
   path: '/',
   component: DashboardPage,
 })
+const dashboard = new Route({
+  getParentRoute: () => rootRoute,
+  path: 'dashboard',
+  component: DashboardPage,
+})
 const budget = new Route({
   getParentRoute: () => rootRoute,
   path: 'budget',
@@ -41,13 +46,13 @@ const settings = new Route({
 const routeTree = rootRoute.addChildren([
   budget,
   calendar,
+  dashboard,
   indexRoute,
   settings,
   transactions,
 ])
 
 export const router = new Router({ routeTree })
-
 declare module '@tanstack/react-router' {
   interface Register {
     // This infers the type of our router and registers it across your entire project

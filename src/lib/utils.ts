@@ -1,5 +1,6 @@
 import { clsx, type ClassValue } from 'clsx'
 import { twMerge } from 'tailwind-merge'
+import { useHaExpensesStore } from './store'
 
 export function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs))
@@ -57,3 +58,11 @@ export const currencies = [
     symbol: 'R$',
   },
 ] as const
+
+export const formatMoney = (money: string | number) => {
+  const value = Number(money)
+  const usedCurrencyCode = useHaExpensesStore.getState().currency
+
+  return `${value} ${currencies.find((c) => c.code === usedCurrencyCode)
+    ?.symbol}`
+}

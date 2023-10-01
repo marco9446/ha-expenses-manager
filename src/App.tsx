@@ -13,7 +13,7 @@ function App() {
       <div className="bg-white px-8 py-4">
         {/* Title section */}
         <section className="mb-4 flex items-center justify-between">
-          <h2 className="text-3xl font-bold tracking-tight text-[#047bf4]">
+          <h2 className="text-3xl font-bold tracking-tight text-[#0294ee]">
             HA Expense Manager
           </h2>
           <div className="flex items-center gap-2">
@@ -34,7 +34,7 @@ function App() {
                 <NavigationMenuLink asChild>
                   <Link
                     activeProps={{
-                      className: 'bg-white text-foreground shadow',
+                      className: 'bg-[white] text-foreground shadow',
                     }}
                     to="/"
                     className="inline-flex items-center justify-center whitespace-nowrap

@@ -1,59 +1,56 @@
 import TimeRangeSelector from '@/components/TimeRangeSelector/TimeRangeSelector'
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
 import { Progress } from '@/components/ui/progress'
+import {
+  Table,
+  TableBody,
+  TableCell,
+  TableHead,
+  TableHeader,
+  TableRow,
+} from '@/components/ui/table'
 import { formatMoney } from '@/lib/utils'
+import { MdOutlineMoney, MdQuestionMark } from 'react-icons/md'
 import {
   Bar,
   BarChart,
   CartesianGrid,
   Legend,
+  ResponsiveContainer,
   Tooltip,
   XAxis,
   YAxis,
 } from 'recharts'
-
 const data = [
   {
-    name: 'Page A',
-    uv: 4000,
-    pv: 2400,
-    amt: 2400,
+    name: 'Sept 30',
+    Incomes: 2390,
+    Expenses: 3800,
+    Savings: 2500,
   },
   {
-    name: 'Page B',
-    uv: 3000,
-    pv: 1398,
-    amt: 2210,
+    name: 'oct 01',
+    Incomes: 3490,
+    Expenses: 4300,
+    Savings: 2100,
   },
   {
-    name: 'Page C',
-    uv: 2000,
-    pv: 9800,
-    amt: 2290,
+    name: 'Sept 30',
+    Incomes: 2390,
+    Expenses: 3800,
+    Savings: 2500,
   },
   {
-    name: 'Page D',
-    uv: 2780,
-    pv: 3908,
-    amt: 2000,
+    name: 'oct 01',
+    Incomes: 3490,
+    Expenses: 4300,
+    Savings: 2100,
   },
   {
-    name: 'Page E',
-    uv: 1890,
-    pv: 4800,
-    amt: 2181,
-  },
-  {
-    name: 'Page F',
-    uv: 2390,
-    pv: 3800,
-    amt: 2500,
-  },
-  {
-    name: 'Page G',
-    uv: 3490,
-    pv: 4300,
-    amt: 2100,
+    name: 'Sept 30',
+    Incomes: 2390,
+    Expenses: 3800,
+    Savings: 2500,
   },
 ]
 
@@ -67,7 +64,9 @@ const DashboardPage = () => {
               <CardTitle className="text-sm font-medium">Income</CardTitle>
             </CardHeader>
             <CardContent>
-              <div className="text-2xl font-bold">{formatMoney(830.34)}</div>
+              <div className="text-2xl font-bold text-green-500">
+                {formatMoney(830.34)}
+              </div>
               <p className="text-xs text-muted-foreground">
                 +20.1% from last month
               </p>
@@ -78,9 +77,24 @@ const DashboardPage = () => {
               <CardTitle className="text-sm font-medium">Expenses</CardTitle>
             </CardHeader>
             <CardContent>
-              <div className="text-2xl font-bold">{formatMoney(458)}</div>
+              <div className="text-2xl font-bold text-red-500">
+                {formatMoney(458)}
+              </div>
               <p className="text-xs text-muted-foreground">
                 +20.1% from last month
+              </p>
+            </CardContent>
+          </Card>
+          <Card>
+            <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
+              <CardTitle className="text-sm font-medium">Delta</CardTitle>
+            </CardHeader>
+            <CardContent>
+              <div className="text-2xl font-bold text-green-500">
+                +{formatMoney(372.34)}
+              </div>
+              <p className="text-xs text-muted-foreground">
+                difference income and expenses
               </p>
             </CardContent>
           </Card>
@@ -92,47 +106,153 @@ const DashboardPage = () => {
             </CardHeader>
             <CardContent>
               <div className="text-2xl font-bold">35%</div>
-              <p className="text-xs text-muted-foreground">
+              <div className="pt-1 text-xs text-muted-foreground">
                 <Progress value={35} />
-              </p>
-            </CardContent>
-          </Card>
-          <Card>
-            <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-              <CardTitle className="text-sm font-medium">Delta</CardTitle>
-            </CardHeader>
-            <CardContent>
-              <div className="text-2xl font-bold">+{formatMoney(372.34)}</div>
-              <p className="text-xs text-muted-foreground">
-                difference income and expenses
-              </p>
+              </div>
             </CardContent>
           </Card>
         </div>
 
         <TimeRangeSelector />
       </div>
+      <section className="flex  gap-2">
+        <div className="max-w-[50%] grow">
+          <div className="mt-6">
+            <h2 className="pb-3 text-2xl ">Incomes</h2>
+            <Card className="max-w-lg">
+              <Table className="">
+                <TableHeader>
+                  <TableRow>
+                    <TableHead>Category</TableHead>
+                    <TableHead className="text-right">Tracked</TableHead>
+                    <TableHead className="text-right">Budget</TableHead>
+                    <TableHead className="text-right">Delta</TableHead>
+                  </TableRow>
+                </TableHeader>
+                <TableBody>
+                  <TableRow>
+                    <TableCell className="font-medium">
+                      <MdOutlineMoney className="mr-2 inline text-muted-foreground" />{' '}
+                      Salary
+                    </TableCell>
+                    <TableCell className="text-right">
+                      {formatMoney(1230)}
+                    </TableCell>
+                    <TableCell className="text-right">
+                      {formatMoney(1230)}
+                    </TableCell>
+                    <TableCell className="text-right text-green-500">
+                      {formatMoney(0)}
+                    </TableCell>
+                  </TableRow>
+                  <TableRow>
+                    <TableCell className="font-medium">
+                      <MdQuestionMark className="mr-2 inline  text-muted-foreground" />{' '}
+                      Other
+                    </TableCell>
+                    <TableCell className="text-right">
+                      {formatMoney(130)}
+                    </TableCell>
+                    <TableCell className="text-right">
+                      {formatMoney(100)}
+                    </TableCell>
+                    <TableCell className="text-right text-green-500">
+                      +{formatMoney(30)}
+                    </TableCell>
+                  </TableRow>
+                </TableBody>
+              </Table>
+            </Card>
+          </div>
+          <div className="mt-6">
+            <h2 className="pb-3 text-2xl ">Expenses</h2>
+            <Card className="max-w-lg">
+              <Table className="">
+                <TableHeader>
+                  <TableRow>
+                    <TableHead>Category</TableHead>
+                    <TableHead className="text-right">Tracked</TableHead>
+                    <TableHead className="text-right">Budget</TableHead>
+                    <TableHead className="text-right">Delta</TableHead>
+                  </TableRow>
+                </TableHeader>
+                <TableBody>
+                  <TableRow>
+                    <TableCell className="font-medium">Groceries</TableCell>
+                    <TableCell className="text-right">
+                      {formatMoney(80)}
+                    </TableCell>
+                    <TableCell className="text-right">
+                      {formatMoney(100)}
+                    </TableCell>
+                    <TableCell className="text-right text-green-500">
+                      -{formatMoney(20)}
+                    </TableCell>
+                  </TableRow>
+                </TableBody>
+              </Table>
+            </Card>
+          </div>
+          <div className="mt-6">
+            <h2 className="pb-3 text-2xl">Savings</h2>
 
-      <section className="mt-8">
-        <BarChart
-          width={500}
-          height={300}
-          data={data}
-          margin={{
-            top: 5,
-            right: 30,
-            left: 20,
-            bottom: 5,
-          }}
-        >
-          <CartesianGrid strokeDasharray="3 3" />
-          <XAxis dataKey="name" />
-          <YAxis />
-          <Tooltip />
-          <Legend />
-          <Bar dataKey="pv" fill="#8884d8" />
-          <Bar dataKey="uv" fill="#82ca9d" />
-        </BarChart>
+            <Card className="max-w-lg">
+              <Table className="">
+                <TableHeader>
+                  <TableRow>
+                    <TableHead>Category</TableHead>
+                    <TableHead className="text-right">Tracked</TableHead>
+                    <TableHead className="text-right">Budget</TableHead>
+                    <TableHead className="text-right">Delta</TableHead>
+                  </TableRow>
+                </TableHeader>
+                <TableBody>
+                  <TableRow>
+                    <TableCell className="font-medium">Pension</TableCell>
+                    <TableCell className="text-right">
+                      {formatMoney(0)}
+                    </TableCell>
+                    <TableCell className="text-right">
+                      {formatMoney(300)}
+                    </TableCell>
+                    <TableCell className="text-right text-red-500">
+                      -{formatMoney(300)}
+                    </TableCell>
+                  </TableRow>
+                </TableBody>
+              </Table>
+            </Card>
+          </div>
+        </div>
+
+        <div className=" max-w-[50%] grow   py-6">
+          <h2 className="pb-3 text-2xl">Graph</h2>
+
+          <Card className="h-2/3 w-full">
+            <ResponsiveContainer width="100%" height="100%">
+              <BarChart
+                width={600}
+                height={400}
+                data={data}
+                margin={{
+                  top: 5,
+                  right: 5,
+                  left: 0,
+                  bottom: 0,
+                }}
+              >
+                <CartesianGrid strokeDasharray="3 3" />
+                <XAxis dataKey="name" />
+                <YAxis />
+                <Tooltip formatter={(a) => formatMoney(a.toString())} />
+                <Legend />
+                <Bar dataKey="Incomes" fill="rgb(74 222 128)" />
+                <Bar dataKey="Expenses" fill="rgb(248 113 113)" />
+                <Bar dataKey="Savings" fill="rgb(96 165 250)" />
+              </BarChart>
+            </ResponsiveContainer>
+          </Card>
+        </div>
       </section>
     </>
   )

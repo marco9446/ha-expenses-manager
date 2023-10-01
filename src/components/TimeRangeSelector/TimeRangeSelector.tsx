@@ -2,28 +2,24 @@ import { MdKeyboardArrowLeft, MdKeyboardArrowRight } from 'react-icons/md'
 
 const TimeRangeSelector = () => {
   return (
-    <div className="space-y-2">
+    <div className="flex flex-col items-end space-y-2">
       <div className="border-collapse">
-        <button className="rounded-l border border-t border-foreground bg-slate-300 px-3 py-1">
-          week
-        </button>
-        <button className="border-y border-r border-foreground  px-3 py-1">
+        <button className="shadow-inset rounded-l border border-t border-foreground bg-[#e6e6e6] px-3 py-1">
           month
         </button>
-        <button className="border-y border-foreground px-3 py-1">year</button>
-        <button className="rounded-r border border-foreground px-3 py-1">
-          custom
+        <button className="rounded-r border-y border-r border-foreground px-3 py-1">
+          year
         </button>
       </div>
       {/* second Row */}
       <div className="flex items-center justify-between text-sm">
         <div>Sep 25 - Oct 1</div>
-        <div className="flex items-baseline">
-          <button>
-            <MdKeyboardArrowLeft />
+        <div className="flex items-baseline gap-2 ">
+          <button className="rounded hover:ring-1 ">
+            <MdKeyboardArrowLeft size={'2em'} />
           </button>
-          <button>
-            <MdKeyboardArrowRight />
+          <button className=" rounded hover:ring-1">
+            <MdKeyboardArrowRight size={'2em'} />
           </button>
         </div>
         <button className="rounded border border-foreground px-3 py-1">

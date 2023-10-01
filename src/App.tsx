@@ -13,21 +13,9 @@ function App() {
       <div className="bg-white px-8 py-4">
         {/* Title section */}
         <section className="mb-4 flex items-center justify-between">
-          <h2 className="text-3xl font-bold tracking-tight text-[#0294ee]">
+          <h2 className="text-3xl font-bold tracking-tight ">
             HA Expense Manager
           </h2>
-          <div className="flex items-center gap-2">
-            <Link
-              to="/settings"
-              className="rounded-full border bg-background p-2 shadow-sm"
-            >
-              <MdSettings title="Settings" />
-            </Link>
-          </div>
-        </section>
-
-        {/* Nav section */}
-        <section>
           <NavigationMenu>
             <NavigationMenuList className="inline-flex h-9 items-center justify-center space-x-2 rounded-lg bg-muted p-1 text-muted-foreground">
               <NavigationMenuItem>
@@ -104,7 +92,18 @@ function App() {
               </NavigationMenuItem>
             </NavigationMenuList>
           </NavigationMenu>
+          <div className="flex items-center gap-2">
+            <Link
+              to="/settings"
+              className="rounded-full border bg-background p-2 shadow-sm"
+            >
+              <MdSettings title="Settings" />
+            </Link>
+          </div>
         </section>
+
+        {/* Nav section */}
+        <section></section>
       </div>
 
       <section className="px-8">

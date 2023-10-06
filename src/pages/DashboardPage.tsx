@@ -64,7 +64,7 @@ const DashboardPage = () => {
 
         <TimeRangeSelector />
       </div>
-      <section className="mt-4 flex flex-col-reverse gap-4 lg:flex-row">
+      <section className="mb-8 mt-4 flex flex-col-reverse gap-4 lg:flex-row">
         <div className=" min-w-[50%] grow space-y-4">
           <div>
             <h2 className="pb-2 text-2xl ">Incomes</h2>
@@ -117,8 +117,8 @@ const DashboardPage = () => {
         <div className="grow">
           <h2 className="pb-2 text-2xl">Graph</h2>
 
-          <Card className="h-2/3 lg:w-[99%]">
-            <ResponsiveContainer height="100%">
+          <Card className="h-52 w-full lg:h-80 lg:w-[99%]">
+            <ResponsiveContainer height="100%" width="100%">
               <BarChart
                 data={data}
                 margin={{
@@ -180,7 +180,7 @@ const ValueCard = ({
         </CardTitle>
       </CardHeader>
       <CardContent className="p-0">
-        <div className="font-bold md:text-2xl">{formattedValue}</div>
+        <div className="text-lg font-bold md:text-2xl">{formattedValue}</div>
         <div className="pt-1 text-xs text-muted-foreground">{footer}</div>
       </CardContent>
     </Card>

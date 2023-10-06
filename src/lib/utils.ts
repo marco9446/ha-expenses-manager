@@ -40,7 +40,7 @@ export const currencies = [
   {
     name: 'Swiss Franc',
     code: 'CHF',
-    symbol: 'Fr',
+    symbol: 'CHF',
   },
   {
     name: 'Chinese Yuan',
@@ -60,7 +60,7 @@ export const currencies = [
 ] as const
 
 export const formatMoney = (money: string | number, showSign = false) => {
-  const value = Math.abs(Number(money))
+  const value = Math.abs(Number(money)).toFixed(0)
   const sign = Number(money) > 0 ? '+' : '-'
   const usedCurrencyCode = useHaExpensesStore.getState().currency
 

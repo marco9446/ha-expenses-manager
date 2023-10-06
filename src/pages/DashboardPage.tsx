@@ -1,16 +1,9 @@
+import DashboardTable from '@/components/DashboardTable/DashboardTable'
 import TimeRangeSelector from '@/components/TimeRangeSelector/TimeRangeSelector'
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
 import { Progress } from '@/components/ui/progress'
-import {
-  Table,
-  TableBody,
-  TableCell,
-  TableHead,
-  TableHeader,
-  TableRow,
-} from '@/components/ui/table'
-import { formatMoney } from '@/lib/utils'
-import { MdOutlineMoney, MdQuestionMark } from 'react-icons/md'
+import { cn, formatMoney } from '@/lib/utils'
+import { ReactNode } from 'react'
 import {
   Bar,
   BarChart,
@@ -59,58 +52,14 @@ const DashboardPage = () => {
     <>
       <div className="flex items-center justify-between">
         <div className="mt-5 flex gap-4">
-          <Card>
-            <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-              <CardTitle className="text-sm font-medium">Income</CardTitle>
-            </CardHeader>
-            <CardContent>
-              <div className="text-2xl font-bold text-green-500">
-                {formatMoney(830.34)}
-              </div>
-              <p className="text-xs text-muted-foreground">
-                +20.1% from last month
-              </p>
-            </CardContent>
-          </Card>
-          <Card>
-            <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-              <CardTitle className="text-sm font-medium">Expenses</CardTitle>
-            </CardHeader>
-            <CardContent>
-              <div className="text-2xl font-bold text-red-500">
-                {formatMoney(458)}
-              </div>
-              <p className="text-xs text-muted-foreground">
-                +20.1% from last month
-              </p>
-            </CardContent>
-          </Card>
-          <Card>
-            <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-              <CardTitle className="text-sm font-medium">Delta</CardTitle>
-            </CardHeader>
-            <CardContent>
-              <div className="text-2xl font-bold text-green-500">
-                +{formatMoney(372.34)}
-              </div>
-              <p className="text-xs text-muted-foreground">
-                difference income and expenses
-              </p>
-            </CardContent>
-          </Card>
-          <Card>
-            <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-              <CardTitle className="text-sm font-medium">
-                Period compl.
-              </CardTitle>
-            </CardHeader>
-            <CardContent>
-              <div className="text-2xl font-bold">35%</div>
-              <div className="pt-1 text-xs text-muted-foreground">
-                <Progress value={35} />
-              </div>
-            </CardContent>
-          </Card>
+          <ValueCard doFormatMoney title="Income" value={830.34} footer="" />
+          <ValueCard doFormatMoney title="Expenses" value={-458.34} footer="" />
+          <ValueCard doFormatMoney title="Delta" value={372.34} footer="" />
+          <ValueCard
+            title="Period compl."
+            value={'35%'}
+            footer={<Progress value={35} />}
+          />
         </div>
 
         <TimeRangeSelector />
@@ -119,109 +68,50 @@ const DashboardPage = () => {
         <div className="max-w-[50%] grow">
           <div className="mt-6">
             <h2 className="pb-3 text-2xl ">Incomes</h2>
-            <Card className="max-w-lg">
-              <Table className="">
-                <TableHeader>
-                  <TableRow>
-                    <TableHead>Category</TableHead>
-                    <TableHead className="text-right">Tracked</TableHead>
-                    <TableHead className="text-right">Budget</TableHead>
-                    <TableHead className="text-right">Delta</TableHead>
-                  </TableRow>
-                </TableHeader>
-                <TableBody>
-                  <TableRow>
-                    <TableCell className="font-medium">
-                      <MdOutlineMoney className="mr-2 inline text-muted-foreground" />{' '}
-                      Salary
-                    </TableCell>
-                    <TableCell className="text-right">
-                      {formatMoney(1230)}
-                    </TableCell>
-                    <TableCell className="text-right">
-                      {formatMoney(1230)}
-                    </TableCell>
-                    <TableCell className="text-right text-green-500">
-                      {formatMoney(0)}
-                    </TableCell>
-                  </TableRow>
-                  <TableRow>
-                    <TableCell className="font-medium">
-                      <MdQuestionMark className="mr-2 inline  text-muted-foreground" />{' '}
-                      Other
-                    </TableCell>
-                    <TableCell className="text-right">
-                      {formatMoney(130)}
-                    </TableCell>
-                    <TableCell className="text-right">
-                      {formatMoney(100)}
-                    </TableCell>
-                    <TableCell className="text-right text-green-500">
-                      +{formatMoney(30)}
-                    </TableCell>
-                  </TableRow>
-                </TableBody>
-              </Table>
-            </Card>
+            <DashboardTable
+              data={[
+                {
+                  category: 'something',
+                  trackedValue: 33,
+                  budgetValue: 30,
+                  deltaValue: 3,
+                },
+                {
+                  category: 'other',
+                  trackedValue: 339,
+                  budgetValue: 100,
+                  deltaValue: 239,
+                },
+              ]}
+            />
           </div>
           <div className="mt-6">
             <h2 className="pb-3 text-2xl ">Expenses</h2>
-            <Card className="max-w-lg">
-              <Table className="">
-                <TableHeader>
-                  <TableRow>
-                    <TableHead>Category</TableHead>
-                    <TableHead className="text-right">Tracked</TableHead>
-                    <TableHead className="text-right">Budget</TableHead>
-                    <TableHead className="text-right">Delta</TableHead>
-                  </TableRow>
-                </TableHeader>
-                <TableBody>
-                  <TableRow>
-                    <TableCell className="font-medium">Groceries</TableCell>
-                    <TableCell className="text-right">
-                      {formatMoney(80)}
-                    </TableCell>
-                    <TableCell className="text-right">
-                      {formatMoney(100)}
-                    </TableCell>
-                    <TableCell className="text-right text-green-500">
-                      -{formatMoney(20)}
-                    </TableCell>
-                  </TableRow>
-                </TableBody>
-              </Table>
-            </Card>
+            <DashboardTable
+              inverted
+              data={[
+                {
+                  category: 'something',
+                  trackedValue: 33,
+                  budgetValue: 30,
+                  deltaValue: +3,
+                },
+              ]}
+            />
           </div>
           <div className="mt-6">
             <h2 className="pb-3 text-2xl">Savings</h2>
 
-            <Card className="max-w-lg">
-              <Table className="">
-                <TableHeader>
-                  <TableRow>
-                    <TableHead>Category</TableHead>
-                    <TableHead className="text-right">Tracked</TableHead>
-                    <TableHead className="text-right">Budget</TableHead>
-                    <TableHead className="text-right">Delta</TableHead>
-                  </TableRow>
-                </TableHeader>
-                <TableBody>
-                  <TableRow>
-                    <TableCell className="font-medium">Pension</TableCell>
-                    <TableCell className="text-right">
-                      {formatMoney(0)}
-                    </TableCell>
-                    <TableCell className="text-right">
-                      {formatMoney(300)}
-                    </TableCell>
-                    <TableCell className="text-right text-red-500">
-                      -{formatMoney(300)}
-                    </TableCell>
-                  </TableRow>
-                </TableBody>
-              </Table>
-            </Card>
+            <DashboardTable
+              data={[
+                {
+                  category: 'something',
+                  budgetValue: 30,
+                  deltaValue: 20,
+                  trackedValue: 33,
+                },
+              ]}
+            />
           </div>
         </div>
 
@@ -259,3 +149,41 @@ const DashboardPage = () => {
 }
 
 export default DashboardPage
+
+const ValueCard = ({
+  title,
+  value,
+  footer,
+  doFormatMoney = false,
+}: {
+  title: string
+  value: string | number
+  doFormatMoney?: boolean
+  footer?: ReactNode
+}) => {
+  let formattedValue: ReactNode = value
+  if (doFormatMoney) {
+    formattedValue = (
+      <span
+        className={cn({
+          'text-positive': (value as number) >= 0,
+          'text-negative': (value as number) < 0,
+        })}
+      >
+        {formatMoney(value, true)}
+      </span>
+    )
+  }
+
+  return (
+    <Card>
+      <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
+        <CardTitle className="text-sm font-medium">{title}</CardTitle>
+      </CardHeader>
+      <CardContent>
+        <div className="text-2xl font-bold">{formattedValue}</div>
+        <div className="pt-1 text-xs text-muted-foreground">{footer}</div>
+      </CardContent>
+    </Card>
+  )
+}

@@ -59,10 +59,12 @@ export const currencies = [
   },
 ] as const
 
-export const formatMoney = (money: string | number) => {
-  const value = Number(money)
+export const formatMoney = (money: string | number, showSign = false) => {
+  const value = Math.abs(Number(money))
+  const sign = Number(money) > 0 ? '+' : '-'
   const usedCurrencyCode = useHaExpensesStore.getState().currency
 
-  return `${value} ${currencies.find((c) => c.code === usedCurrencyCode)
-    ?.symbol}`
+  return `${showSign ? sign : ''}${value} ${currencies.find(
+    (c) => c.code === usedCurrencyCode
+  )?.symbol}`
 }

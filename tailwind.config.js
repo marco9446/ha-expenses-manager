@@ -18,6 +18,8 @@ module.exports = {
     },
     extend: {
       colors: {
+        positive: 'hsl(var(--positive))',
+        negative: 'hsl(var(--negative))',
         border: 'hsl(var(--border))',
         input: 'hsl(var(--input))',
         ring: 'hsl(var(--ring))',

@@ -56,11 +56,11 @@ const MainNavItem = ({ path, value }: { path: Page; value: string }) => {
         <Link
           to={('/' + path) as Page}
           className="inline-flex items-center justify-center whitespace-nowrap
-            rounded-md px-3 py-1 text-xs font-medium ring-offset-background 
-            transition-all focus-visible:outline-none
-            focus-visible:ring-2 focus-visible:ring-ring 
-            focus-visible:ring-offset-2 disabled:pointer-events-none 
-            disabled:opacity-50 sm:text-sm"
+            rounded-md p-2 text-sm font-medium 
+            ring-offset-background transition-all
+            focus-visible:outline-none focus-visible:ring-2 
+            focus-visible:ring-ring focus-visible:ring-offset-2 
+            disabled:pointer-events-none disabled:opacity-50"
           activeProps={{
             className: 'bg-card text-foreground shadow',
           }}

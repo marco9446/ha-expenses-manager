@@ -16,23 +16,27 @@ const SettingsPage = () => {
   const setCurrency = useHaExpensesStore((state) => state.setCurrency)
 
   return (
-    <div>
-      <div>
-        <legend>Select the currency to use</legend>
+    <div className="space-y-3">
+      <h1 className="mb-6 scroll-m-20 text-xl font-semibold tracking-tight lg:text-2xl">
+        Settings
+      </h1>
+
+      <div className="space-y-2">
+        <legend className="font-thin">Select the currency to use:</legend>
         <Select
           onValueChange={(newCurrency) =>
             setCurrency(newCurrency as (typeof currencies)[number]['code'])
           }
           value={currency}
         >
-          <SelectTrigger className="w-[180px]">
+          <SelectTrigger className=" w-52">
             <SelectValue placeholder="Select currency" />
           </SelectTrigger>
           <SelectContent>
             <SelectGroup>
               <SelectLabel>Currencies</SelectLabel>
               {currencies.map((c) => (
-                <SelectItem value={c.code} key={c.code}>
+                <SelectItem value={c.code} key={c.code} className="py-2.5">
                   <span>({c.symbol})</span>
                   <span className="ml-2">{c.name}</span>
                 </SelectItem>

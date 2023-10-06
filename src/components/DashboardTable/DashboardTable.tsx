@@ -17,8 +17,8 @@ type DashboardTableProps = {
 
 const DashboardTable = ({ data, inverted = false }: DashboardTableProps) => {
   return (
-    <Card className="max-w-lg">
-      <Table className="">
+    <Card>
+      <Table>
         <TableHeader>
           <TableRow>
             <TableHead>Category</TableHead>

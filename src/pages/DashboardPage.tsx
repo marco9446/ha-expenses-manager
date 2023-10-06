@@ -50,8 +50,8 @@ const data = [
 const DashboardPage = () => {
   return (
     <>
-      <div className="flex items-center justify-between">
-        <div className="mt-5 flex gap-4">
+      <div className="flex flex-col-reverse justify-between md:flex-row md:items-center">
+        <div className="mt-5 flex flex-wrap justify-between gap-1 md:justify-start">
           <ValueCard doFormatMoney title="Income" value={830.34} footer="" />
           <ValueCard doFormatMoney title="Expenses" value={-458.34} footer="" />
           <ValueCard doFormatMoney title="Delta" value={372.34} footer="" />
@@ -64,10 +64,10 @@ const DashboardPage = () => {
 
         <TimeRangeSelector />
       </div>
-      <section className="flex  gap-2">
-        <div className="max-w-[50%] grow">
-          <div className="mt-6">
-            <h2 className="pb-3 text-2xl ">Incomes</h2>
+      <section className="mt-4 flex flex-col-reverse gap-4 lg:flex-row">
+        <div className=" min-w-[50%] grow space-y-4">
+          <div>
+            <h2 className="pb-2 text-2xl ">Incomes</h2>
             <DashboardTable
               data={[
                 {
@@ -85,8 +85,8 @@ const DashboardPage = () => {
               ]}
             />
           </div>
-          <div className="mt-6">
-            <h2 className="pb-3 text-2xl ">Expenses</h2>
+          <div>
+            <h2 className="pb-2 text-2xl ">Expenses</h2>
             <DashboardTable
               inverted
               data={[
@@ -99,9 +99,8 @@ const DashboardPage = () => {
               ]}
             />
           </div>
-          <div className="mt-6">
-            <h2 className="pb-3 text-2xl">Savings</h2>
-
+          <div>
+            <h2 className="pb-2 text-2xl">Savings</h2>
             <DashboardTable
               data={[
                 {
@@ -115,14 +114,12 @@ const DashboardPage = () => {
           </div>
         </div>
 
-        <div className=" max-w-[50%] grow   py-6">
-          <h2 className="pb-3 text-2xl">Graph</h2>
+        <div className="grow">
+          <h2 className="pb-2 text-2xl">Graph</h2>
 
-          <Card className="h-2/3 w-full">
-            <ResponsiveContainer width="100%" height="100%">
+          <Card className="h-2/3 lg:w-[99%]">
+            <ResponsiveContainer height="100%">
               <BarChart
-                width={600}
-                height={400}
                 data={data}
                 margin={{
                   top: 5,
@@ -176,12 +173,14 @@ const ValueCard = ({
   }
 
   return (
-    <Card>
-      <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-        <CardTitle className="text-sm font-medium">{title}</CardTitle>
+    <Card className="space-y-1 p-4">
+      <CardHeader className="p-0">
+        <CardTitle className="p-0 text-xs font-medium  md:text-sm ">
+          {title}
+        </CardTitle>
       </CardHeader>
-      <CardContent>
-        <div className="text-2xl font-bold">{formattedValue}</div>
+      <CardContent className="p-0">
+        <div className="font-bold md:text-2xl">{formattedValue}</div>
         <div className="pt-1 text-xs text-muted-foreground">{footer}</div>
       </CardContent>
     </Card>

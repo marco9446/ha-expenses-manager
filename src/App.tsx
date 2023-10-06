@@ -40,7 +40,7 @@ function App() {
         </section>
       </div>
 
-      <section className="px-8">
+      <section className="px-4 md:px-8">
         <Outlet />
       </section>
     </main>

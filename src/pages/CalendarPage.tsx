@@ -1,3 +1,4 @@
+import { Badge } from '@/components/ui/badge'
 import { formatMoney } from '@/lib/utils'
 import moment from 'moment'
 import { useCallback } from 'react'
@@ -37,12 +38,13 @@ const CalendarPage = () => {
       <Calendar
         components={{
           event: (event) => (
+            // TODO use useMemo
             <div>
-              <span>{event.title}</span>
+              <span className="capitalize">{event.title}</span>
               {event.event.resource?.amount !== undefined && (
-                <span className="ml-3 whitespace-nowrap rounded-lg border bg-white/30 p-1 text-sm font-semibold">
+                <Badge variant="default" className="ml-3">
                   {formatMoney(event.event.resource?.amount)}
-                </span>
+                </Badge>
               )}
             </div>
           ),

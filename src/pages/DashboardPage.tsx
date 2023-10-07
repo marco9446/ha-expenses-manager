@@ -1,4 +1,4 @@
-import DashboardTable from '@/components/DashboardTable/DashboardTable'
+import DashboardTable from '@/components/Tables/DashboardTable'
 import TimeRangeSelector from '@/components/TimeRangeSelector/TimeRangeSelector'
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
 import { Progress } from '@/components/ui/progress'

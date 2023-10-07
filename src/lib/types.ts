@@ -11,3 +11,9 @@ export type DashboardTableData = {
   budgetValue: number
   deltaValue: number
 }
+export type BudgetTableData = {
+  budgetValue: number
+  category: string
+  categoryIcon?: string
+  id: string
+}

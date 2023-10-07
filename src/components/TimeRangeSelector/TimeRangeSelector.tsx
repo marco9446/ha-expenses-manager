@@ -1,4 +1,4 @@
-import { MdKeyboardArrowLeft, MdKeyboardArrowRight } from 'react-icons/md'
+import { ChevronLeftIcon, ChevronRightIcon } from '@radix-ui/react-icons'
 
 const TimeRangeSelector = () => {
   return (
@@ -16,10 +16,10 @@ const TimeRangeSelector = () => {
         <div>Sep 25 - Oct 1</div>
         <div className="flex items-baseline gap-2 ">
           <button className="rounded hover:ring-1 ">
-            <MdKeyboardArrowLeft size={'2em'} />
+            <ChevronLeftIcon />
           </button>
           <button className=" rounded hover:ring-1">
-            <MdKeyboardArrowRight size={'2em'} />
+            <ChevronRightIcon />
           </button>
         </div>
         <button className="rounded border border-foreground px-3 py-1">

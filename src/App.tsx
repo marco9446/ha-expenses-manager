@@ -1,5 +1,5 @@
+import { GearIcon } from '@radix-ui/react-icons'
 import { Link, Outlet } from '@tanstack/react-router'
-import { MdSettings } from 'react-icons/md'
 import {
   NavigationMenu,
   NavigationMenuItem,
@@ -34,7 +34,7 @@ function App() {
               to="/settings"
               className="rounded-full border bg-background p-2 shadow-sm"
             >
-              <MdSettings title="Settings" />
+              <GearIcon />
             </Link>
           </div>
         </section>
